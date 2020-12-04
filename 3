@@ -1,0 +1,9 @@
+for(N,N):-
+    write('End'),
+    !.
+for(R,N):-
+    R<N,
+    write('*'),
+    R1 is R+1,
+    for(R1,N),
+    !.
