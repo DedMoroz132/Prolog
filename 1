@@ -1,0 +1,9 @@
+t(N,F,0):-
+    F>N,
+    !.
+t(N,F,S):-
+    F1 is F+2,
+    t(N,F1,S1),
+    S is S1+F.
+p(N,S):-
+    t(N,1,S).
