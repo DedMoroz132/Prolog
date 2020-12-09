@@ -1,0 +1,5 @@
+p([H|A],[T|B],N):-
+    p(A,B,N1),
+    N is N1+H*T.
+p([H],[T],N):-
+    N is H*T.
