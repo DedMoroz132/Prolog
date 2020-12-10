@@ -1,0 +1,19 @@
+sor([],[]).
+sor(L,[U|L1]):-
+    min(L,T),
+    del(L,T,K),
+    U is T,
+    sor(K,L1).
+min([U|L],T):-
+    min(L,U,T).
+min([U|L],Y,T):-
+    Y>=U,
+    min(L,U,T).
+min([U|L],Y,T):-
+    Y<U,
+    min(L,Y,T).
+min([],Y,Y).
+del([P|O],T,O):-
+    T=:=P.
+del([P|O],T,[P|K]):-
+    del(O,T,K).
