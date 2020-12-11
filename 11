@@ -1,0 +1,16 @@
+sd(L,0,L):-!.
+sd(L,N,L1):-
+    trace,
+    N>0,
+    sd1(L,L2),
+    N1 is N-1,
+    sd(L2,N1,L1).
+sd1([H|L],[O,G|L2]):-
+    G is H,
+    sd2(L,K,L2),
+    O is K.
+sd2([H|[]],K,[]):-
+    K is H.
+sd2([H|L],K,[G|L2]):-
+    G is H,
+    sd2(L,K,L2).
