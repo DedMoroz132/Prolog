@@ -1,3 +1,14 @@
-q(L):-s(L,L1,0,L).
-s([H|L1],[B|L2],N,L):-
-    d(H,
+re(L,L1):-
+    prov(L,L1).
+prov([],[]).
+prov([K|T],[G|H]):-
+    G is K,
+    d(T,K,T1),
+    prov(T1,H).
+d([],_,[]).
+d([P|O],K,H):-
+    K=:=P,
+    d(O,K,H).
+d([P|O],K,[G|H]):-
+    G is P,
+    d(O,K,H).
