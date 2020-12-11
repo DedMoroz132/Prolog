@@ -1,20 +1,13 @@
-sor([],[]).
-sor([A|B],[]):-
-    sor(B,A).
-sor([A|B],C):-
-    in(A,C,C1,0),
-    sor(B,C1).
-in(A,[],A,0).
-in(A,[B|C],[D|E],0):-
-    A>B,
-    D is B,
-    in(A,C,E,0).
-in(A,[B|C],[D,E|F],0):-
-    A=<B,
-    D is A,
-    E is B,
-    in(A,C,F,1).
-in(_,[],[],1).
-in(A,[B|C],[D|E],1):-
-    D is B,
-    in(A,C,E,1).
+sor([],_):-!.
+sor([],L3,L3).
+sor([K|L],L1):-
+    d(K,[],L2),
+    sor(L,L2,L1).
+sor([K|L],L2,L1):-
+    d(K,L2,L3),
+    sor(L,L3,L1).
+d(A,[],[A]):-!.
+d(A,[H|T],[A,H|T]):-
+  A<H,!.
+d(A,[H|T],[H|InsertTail]):-
+  d(A,T,InsertTail).
