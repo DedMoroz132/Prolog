@@ -1,14 +1,12 @@
 re(L,L1):-
-    prov(L,L1).
+    prov(L,L1),!.
 prov([],[]).
-prov([K|T],[G|H]):-
-    G is K,
+prov([K|T],[K|H]):-
     d(T,K,T1),
     prov(T1,H).
 d([],_,[]).
 d([P|O],K,H):-
     K=:=P,
     d(O,K,H).
-d([P|O],K,[G|H]):-
-    G is P,
+d([P|O],K,[P|H]):-
     d(O,K,H).
