@@ -1,10 +1,10 @@
-ch([],_,_,[]):-
+ch([],_,[]):-
     !.
-ch([_|S],N,N1,T):-
-    N>=N1,
-    N2 is N1+1,
-    ch(S,N,N2,T),!.
-ch([X|S],N,N1,[L|T]):-
-    N<N1,
+ch([_|S],N,T):-
+    N>1,
+    N1 is N-1,
+    ch(S,N1,T),!.
+ch([X|S],N,[L|T]):-
+    N=:=1,
     L is X,
-    ch(S,N,N1,T),!.
+    ch(S,N,T),!.
