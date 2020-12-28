@@ -1,5 +1,5 @@
-ch([],_,[]):-
+ch([],[]):-
     !.
-ch([X|S],N,[L|T]):-
-    L is X*N,
-    ch(S,N,T),!.
+ch([X|S],[L|T]):-
+    L is X+X,
+    ch(S,T),!.
